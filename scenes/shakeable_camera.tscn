@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://vu4k4n1i85yk"]
+
+[ext_resource type="Script" uid="uid://dsrdmclf6a2ng" path="res://scripts/shakeable_camera.gd" id="1_7xn7g"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7xn7g"]
+frequency = 0.05
+fractal_octaves = 4
+fractal_gain = 0.8
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_6xy6h"]
+radius = 1.5
+
+[node name="shakeable_camera" type="Area3D" unique_id=1376916637]
+script = ExtResource("1_7xn7g")
+noise = SubResource("FastNoiseLite_7xn7g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=549347011]
+shape = SubResource("SphereShape3D_6xy6h")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=921552886]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=655844606]
+
+[node name="BlackScreen" type="ColorRect" parent="CanvasLayer" unique_id=2006047420]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)

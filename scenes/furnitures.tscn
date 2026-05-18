@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dsyk43wr2s8m0"]
+
+[ext_resource type="PackedScene" uid="uid://kk6cspofsg06" path="res://assets/glb/Furnitures.glb" id="1_6a685"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6a685"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h5ql5"]
+albedo_color = Color(0.27752772, 0.27752772, 0.27752772, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jrd6s"]
+size = Vector3(0.6, 0.4, 0.4)
+
+[node name="Furnitures" unique_id=69527652 instance=ExtResource("1_6a685")]
+
+[node name="exclamation_mark" parent="." index="10" unique_id=2109889476]
+material_override = SubResource("StandardMaterial3D_6a685")
+
+[node name="Box_B" parent="." index="11" unique_id=689047432]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.328975, 0, 2.7181451)
+surface_material_override/0 = SubResource("StandardMaterial3D_h5ql5")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="Box_B" index="0" unique_id=249469635]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box_B/RigidBody3D" index="0" unique_id=1512750794]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00022554398, 0.20062429, -0.0005187988)
+shape = SubResource("BoxShape3D_jrd6s")

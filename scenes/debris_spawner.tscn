@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bprvp24t78qa4"]
+
+[ext_resource type="Script" uid="uid://br48mw56dc3hs" path="res://scripts/debris_spawner.gd" id="1_unwiv"]
+
+[node name="debris_spawner" type="Node3D" unique_id=1068327904]
+script = ExtResource("1_unwiv")
