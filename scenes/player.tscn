@@ -402,6 +402,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "F - Interact"
 
+[node name="Label4" type="Label" parent="ControlsHUD/Panel/VBoxContainer" unique_id=890913561]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Space - Jump"
+
 [node name="Label3" type="Label" parent="ControlsHUD/Panel/VBoxContainer" unique_id=1268594403]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24

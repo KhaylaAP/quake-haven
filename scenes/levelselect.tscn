@@ -1,0 +1,230 @@
+[gd_scene format=3 uid="uid://d4nil48vjyqpo"]
+
+[ext_resource type="Texture2D" uid="uid://crfv1b4wtq5sr" path="res://assets/img/Background.png" id="1_4kdbh"]
+[ext_resource type="Script" uid="uid://btg7y7ss6ffq2" path="res://scripts/level_select.gd" id="1_nqy8e"]
+[ext_resource type="FontFile" uid="uid://d3agbbgwjnkm8" path="res://assets/fonts/RubikSprayPaint-Regular.ttf" id="1_xuh2y"]
+[ext_resource type="PackedScene" uid="uid://crduaveoqpad5" path="res://scenes/level_select_button.tscn" id="2_vttqt"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nqy8e"]
+texture = ExtResource("1_4kdbh")
+modulate_color = Color(0.30692267, 0.3069227, 0.3069227, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nqy8e"]
+bg_color = Color(1, 0.24213666, 0.3016614, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.24115604, 0.24115604, 0.24115604, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(3.525, 3.47)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6rap8"]
+bg_color = Color(0.64926064, 0.013060761, 0.111574, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.24115604, 0.24115604, 0.24115604, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(3.525, 3.47)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aaiik"]
+bg_color = Color(0.6509804, 0.011764706, 0.10980392, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.24115604, 0.24115604, 0.24115604, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(3.525, 3.47)
+
+[node name="levelselect" type="Control" unique_id=2032100396]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_nqy8e")
+
+[node name="Panel" type="Panel" parent="." unique_id=874391641]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_nqy8e")
+
+[node name="Label" type="Label" parent="." unique_id=1072492665]
+layout_mode = 0
+offset_top = 84.0
+offset_right = 1152.0
+offset_bottom = 227.0
+theme_override_fonts/font = ExtResource("1_xuh2y")
+theme_override_font_sizes/font_size = 65
+text = "LEVEL SELECT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1960688458]
+layout_mode = 0
+offset_top = 143.0
+offset_right = 1152.0
+offset_bottom = 648.99976
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer" unique_id=1873752901]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="LevelSelectButton" parent="CenterContainer/GridContainer" unique_id=1471018865 instance=ExtResource("2_vttqt")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Tutorial"
+
+[node name="LevelSelectButton2" parent="CenterContainer/GridContainer" unique_id=1687983855 instance=ExtResource("2_vttqt")]
+layout_mode = 2
+text = "1"
+
+[node name="Scores" type="VBoxContainer" parent="CenterContainer/GridContainer/LevelSelectButton2" unique_id=1403440177]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.0
+offset_top = -42.0
+offset_right = 45.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="LastScore" type="Label" parent="CenterContainer/GridContainer/LevelSelectButton2/Scores" unique_id=249323385]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_xuh2y")
+theme_override_font_sizes/font_size = 14
+
+[node name="BestScore" type="Label" parent="CenterContainer/GridContainer/LevelSelectButton2/Scores" unique_id=1794558853]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_xuh2y")
+theme_override_font_sizes/font_size = 14
+
+[node name="LevelSelectButton3" parent="CenterContainer/GridContainer" unique_id=1565056765 instance=ExtResource("2_vttqt")]
+layout_mode = 2
+text = "2"
+
+[node name="Scores" type="VBoxContainer" parent="CenterContainer/GridContainer/LevelSelectButton3" unique_id=1447668756]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.0
+offset_top = -42.0
+offset_right = 45.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="LastScore" type="Label" parent="CenterContainer/GridContainer/LevelSelectButton3/Scores" unique_id=2114628822]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_xuh2y")
+theme_override_font_sizes/font_size = 14
+
+[node name="BestScore" type="Label" parent="CenterContainer/GridContainer/LevelSelectButton3/Scores" unique_id=114286046]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_xuh2y")
+theme_override_font_sizes/font_size = 14
+
+[node name="LevelSelectButton4" parent="CenterContainer/GridContainer" unique_id=643248341 instance=ExtResource("2_vttqt")]
+layout_mode = 2
+text = "3"
+
+[node name="Scores" type="VBoxContainer" parent="CenterContainer/GridContainer/LevelSelectButton4" unique_id=1654171896]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.0
+offset_top = -42.0
+offset_right = 45.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="LastScore" type="Label" parent="CenterContainer/GridContainer/LevelSelectButton4/Scores" unique_id=1272537849]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_xuh2y")
+theme_override_font_sizes/font_size = 14
+
+[node name="BestScore" type="Label" parent="CenterContainer/GridContainer/LevelSelectButton4/Scores" unique_id=224871469]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_xuh2y")
+theme_override_font_sizes/font_size = 14
+
+[node name="LevelSelectButton5" parent="CenterContainer/GridContainer" unique_id=1714877607 instance=ExtResource("2_vttqt")]
+layout_mode = 2
+text = "4"
+
+[node name="Scores" type="VBoxContainer" parent="CenterContainer/GridContainer/LevelSelectButton5" unique_id=1208547775]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.0
+offset_top = -42.0
+offset_right = 45.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="LastScore" type="Label" parent="CenterContainer/GridContainer/LevelSelectButton5/Scores" unique_id=886128011]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_xuh2y")
+theme_override_font_sizes/font_size = 14
+
+[node name="BestScore" type="Label" parent="CenterContainer/GridContainer/LevelSelectButton5/Scores" unique_id=1468740930]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_xuh2y")
+theme_override_font_sizes/font_size = 14
+
+[node name="LevelSelectButton6" parent="CenterContainer/GridContainer" unique_id=2085192774 instance=ExtResource("2_vttqt")]
+layout_mode = 2
+text = "5"
+
+[node name="Scores" type="VBoxContainer" parent="CenterContainer/GridContainer/LevelSelectButton6" unique_id=503928418]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.0
+offset_top = -42.0
+offset_right = 45.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="LastScore" type="Label" parent="CenterContainer/GridContainer/LevelSelectButton6/Scores" unique_id=131267274]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_xuh2y")
+theme_override_font_sizes/font_size = 14
+
+[node name="BestScore" type="Label" parent="CenterContainer/GridContainer/LevelSelectButton6/Scores" unique_id=1532401829]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_xuh2y")
+theme_override_font_sizes/font_size = 14
+
+[node name="Button2" type="Button" parent="." unique_id=204468288]
+layout_mode = 0
+offset_left = 1007.0
+offset_top = 577.0
+offset_right = 1140.0
+offset_bottom = 636.0
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_xuh2y")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_nqy8e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6rap8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_aaiik")
+text = "EXIT"
+
+[connection signal="pressed" from="Button2" to="." method="_on_exit_button_pressed"]

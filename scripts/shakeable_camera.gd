@@ -15,6 +15,10 @@ extends Area3D
 
 @export var earthquake_enabled := true
 
+@export var earthquake_duration := 15
+@export var debris_min := 0
+@export var debris_max := 50
+
 #Shake intensity
 var trauma := 0.0
 
@@ -40,7 +44,7 @@ func _ready() -> void:
 	
 #	Wait 5 seconds before earthquake starts
 	await get_tree().create_timer(5.0).timeout
-	_start_earthquake(20.0)
+	_start_earthquake(earthquake_duration)
 
 func _process(delta: float) -> void:
 	time += delta
@@ -75,7 +79,8 @@ func _start_earthquake(duration: float) -> void:
 	await get_tree().create_timer(duration).timeout
 	earthquake_active = false
 	game_state.earthquake_end.emit()
-	await _fade_scene("res://scenes/broken.tscn")
+	game_state.unlock_next_level()
+	await _fade_scene(game_state.load_broken())
 	
 func _fade_scene(scene_path: String) -> void:
 	black_screen.visible = true
@@ -90,6 +95,7 @@ func _fade_scene(scene_path: String) -> void:
 	game_state.last_player_pos = player.global_position
 	game_state.last_player_health = player.health
 	game_state.has_player_pos = true
+	game_state.save_score()
 	
 #	Change scene
 	get_tree().call_deferred("change_scene_to_file", scene_path)

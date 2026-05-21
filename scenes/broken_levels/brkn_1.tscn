@@ -395,7 +395,7 @@ data = PackedVector3Array(-0.32498473, 0.5, -0.32500005, 0.32501525, 0.5, 0.3249
 [sub_resource type="BoxShape3D" id="BoxShape3D_gcsey"]
 size = Vector3(2, 1, 2)
 
-[node name="GameLevel" type="Node3D" unique_id=62749021]
+[node name="GameLevel2" type="Node3D" unique_id=62749021]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2057535606]
 environment = SubResource("Environment_tefeu")

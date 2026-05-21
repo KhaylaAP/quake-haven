@@ -1,9 +1,76 @@
 [gd_scene format=3 uid="uid://igbmlhxv5xlw"]
 
 [ext_resource type="Script" uid="uid://cdmvfkqst5q0g" path="res://scripts/gameover.gd" id="1_ncp31"]
+[ext_resource type="Texture2D" uid="uid://crfv1b4wtq5sr" path="res://assets/img/Background.png" id="2_2mkfd"]
+[ext_resource type="FontFile" uid="uid://d3agbbgwjnkm8" path="res://assets/fonts/RubikSprayPaint-Regular.ttf" id="3_h8i2o"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mt7yr"]
+texture = ExtResource("2_2mkfd")
+modulate_color = Color(0.24477637, 0.2447764, 0.24477637, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_q0yjy"]
+font = ExtResource("3_h8i2o")
 font_size = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qwp2v"]
+bg_color = Color(0.3840355, 0.5700958, 0.8896269, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.24115604, 0.24115604, 0.24115604, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(3.525, 3.47)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3gj0k"]
+bg_color = Color(0.24313726, 0.33333334, 0.5529412, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.24115604, 0.24115604, 0.24115604, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(3.525, 3.47)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ke020"]
+bg_color = Color(0.34116492, 0.44574183, 0.6950461, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.24115604, 0.24115604, 0.24115604, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(3.525, 3.47)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2mkfd"]
+bg_color = Color(1, 0.24213666, 0.3016614, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.24115604, 0.24115604, 0.24115604, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(3.525, 3.47)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h8i2o"]
+bg_color = Color(0.64926064, 0.013060761, 0.111574, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.24115604, 0.24115604, 0.24115604, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(3.525, 3.47)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mt7yr"]
+bg_color = Color(0.6509804, 0.011764706, 0.10980392, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.24115604, 0.24115604, 0.24115604, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(3.525, 3.47)
 
 [node name="Control" type="Control" unique_id=600793311]
 layout_mode = 3
@@ -14,11 +81,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ncp31")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1565940854]
-layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
-color = Color(0.3647059, 0.3647059, 0.3647059, 0.39215687)
+[node name="Panel" type="Panel" parent="." unique_id=1762800493]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_mt7yr")
 
 [node name="Label" type="Label" parent="." unique_id=329616973]
 layout_mode = 1
@@ -53,7 +123,11 @@ grow_vertical = 2
 [node name="Button" type="Button" parent="HBoxContainer" unique_id=2012595221]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_h8i2o")
 theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_qwp2v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3gj0k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ke020")
 text = "RETRY"
 
 [node name="Control" type="Control" parent="HBoxContainer" unique_id=154953483]
@@ -64,7 +138,11 @@ size_flags_stretch_ratio = 0.38
 [node name="Button2" type="Button" parent="HBoxContainer" unique_id=1596032294]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_h8i2o")
 theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_2mkfd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h8i2o")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mt7yr")
 text = "EXIT"
 
 [connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_retry_pressed"]

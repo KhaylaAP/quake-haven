@@ -1,7 +1,6 @@
-[gd_scene format=3 uid="uid://b61fbx3txfly3"]
+[gd_scene format=3 uid="uid://cx8bu4yfi5p1n"]
 
 [ext_resource type="Texture2D" uid="uid://dan62s5d61jeq" path="res://assets/img/TutorialBK.png" id="1_8ho6b"]
-[ext_resource type="Script" uid="uid://bmw10wmvcfavi" path="res://scripts/tutorial.gd" id="1_ckvwl"]
 [ext_resource type="Texture2D" uid="uid://cfbxjptia4foa" path="res://assets/img/charles.png" id="2_6yjpi"]
 [ext_resource type="Texture2D" uid="uid://bj7fpwi18bb2h" path="res://assets/img/Table.png" id="2_8ho6b"]
 [ext_resource type="Texture2D" uid="uid://b5olim2t5s0yy" path="res://assets/img/charles-crawl.png" id="2_ph3nu"]
@@ -512,7 +511,6 @@ shadow_offset = Vector2(3.525, 3.47)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g2equ"]
 
 [node name="Tutorial" type="Node2D" unique_id=1105031661]
-script = ExtResource("1_ckvwl")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1655207609]
 libraries/ = SubResource("AnimationLibrary_6yjpi")

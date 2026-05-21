@@ -9,6 +9,9 @@ extends Node3D
 
 @export var spawn_interval := 0.5
 
+@export var debris_min := 0
+@export var debris_max := 50
+
 var total_debris := 0
 var spawned := 0
 var is_active := false
@@ -19,7 +22,7 @@ func _ready() -> void:
 	
 func start() -> void:
 	is_active = true
-	total_debris = randi_range(0, 50)
+	total_debris = randi_range(debris_min, debris_max)
 	spawned = 0
 	
 	var timer = Timer.new()

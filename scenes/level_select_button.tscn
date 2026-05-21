@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://crduaveoqpad5"]
+
+[ext_resource type="Script" uid="uid://d0ht1w5uruv33" path="res://scripts/level_select_button.gd" id="1_5au5s"]
+[ext_resource type="FontFile" uid="uid://d3agbbgwjnkm8" path="res://assets/fonts/RubikSprayPaint-Regular.ttf" id="1_qa675"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s1cbd"]
+bg_color = Color(0.3840355, 0.5700958, 0.8896269, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.24115604, 0.24115604, 0.24115604, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(3.525, 3.47)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a04ps"]
+bg_color = Color(0.24313726, 0.33333334, 0.5529412, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.24115604, 0.24115604, 0.24115604, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(3.525, 3.47)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q0k5o"]
+bg_color = Color(0.34116492, 0.44574183, 0.6950461, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.24115604, 0.24115604, 0.24115604, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(3.525, 3.47)
+
+[node name="LevelSelectButton" type="Button" unique_id=1471018865]
+custom_minimum_size = Vector2(150, 150)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1002.0
+offset_bottom = -498.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_qa675")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_s1cbd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a04ps")
+theme_override_styles/hover = SubResource("StyleBoxFlat_q0k5o")
+script = ExtResource("1_5au5s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_s1cbd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a04ps")
+theme_override_fonts/font = ExtResource("1_qa675")
+theme_override_styles/hover = SubResource("StyleBoxFlat_q0k5o")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
