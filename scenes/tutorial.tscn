@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cmo6xs1y1qrhr" path="res://assets/img/Door.png" id="4_4kmhl"]
 [ext_resource type="Texture2D" uid="uid://oxfxafye6jnc" path="res://assets/img/Windows.png" id="5_cq4me"]
 [ext_resource type="FontFile" uid="uid://d3agbbgwjnkm8" path="res://assets/fonts/RubikSprayPaint-Regular.ttf" id="7_gbqnl"]
+[ext_resource type="Texture2D" uid="uid://tuh56fiyh3hi" path="res://assets/textures/Flag.png" id="8_nlqja"]
 
 [sub_resource type="Animation" id="Animation_4kmhl"]
 length = 30.0
@@ -239,10 +240,34 @@ tracks/18/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Ending/Flag:modulate")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Ending/Label14:visible_ratio")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_cq4me"]
 resource_name = "tutorial"
-length = 60.0
+length = 65.0
 step = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -472,6 +497,30 @@ tracks/18/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Ending/Flag:modulate")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(60.5, 62, 63, 64.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Ending/Label14:visible_ratio")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(60.5, 62, 63, 64.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6yjpi"]
 _data = {
@@ -592,6 +641,17 @@ texture_filter = 1
 position = Vector2(997.99994, 272.99997)
 scale = Vector2(10, 10)
 texture = ExtResource("2_6yjpi")
+
+[node name="Label14" type="Label" parent="Opening" unique_id=1744788324]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+offset_right = 511.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 0.09803922)
+theme_override_font_sizes/font_size = 36
+text = "Press (Space) to Fast-Forward"
 
 [node name="Drops" type="Node" parent="." unique_id=335085793]
 
@@ -764,6 +824,32 @@ modulate = Color(1, 1, 1, 0)
 position = Vector2(888.99994, 401.99997)
 scale = Vector2(0.67062026, 0.67062044)
 texture = ExtResource("5_cq4me")
+
+[node name="Ending" type="Node" parent="." unique_id=174733985]
+
+[node name="Label14" type="Label" parent="Ending" unique_id=628863755]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -617.5
+offset_top = 72.0
+offset_right = 617.5
+offset_bottom = 209.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 48
+text = "Interact with the flag to end the level
+Press (F)"
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Flag" type="Sprite2D" parent="Ending" unique_id=1614646362]
+modulate = Color(1, 1, 1, 0)
+texture_filter = 1
+position = Vector2(590.99994, 430)
+scale = Vector2(10, 10)
+texture = ExtResource("8_nlqja")
 
 [node name="Button" type="CanvasLayer" parent="." unique_id=1275615263]
 

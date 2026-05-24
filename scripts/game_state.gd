@@ -1,13 +1,14 @@
 extends Node
 
+signal earthquake_start
+signal earthquake_end
+
 var player_can_move := false
 var earthquake_active := false
+
 var last_player_pos := Vector3.ZERO
 var has_player_pos := false
 var last_player_health := 100
-
-signal earthquake_start
-signal earthquake_end
 
 var current_level := 0
 var levels_unlocked := 1
@@ -15,12 +16,21 @@ var levels_unlocked := 1
 var last_scores := {}
 var best_scores := {}
 
+var camera_angle := 0.0
+var camera_under_table := false
+var camera_hide_pos := Vector3.ZERO
+
+var was_hiding := false
+var hide_spot_pos := Vector3.ZERO
+var hiding_damage_applied := false
+
 # Unlock all levels to debug and test
 var unlock_all := true
 
 const LEVEL_PATHS = {
 	0: "res://scenes/tutorial.tscn",
 	1: "res://scenes/levels/1.tscn",
+	2: "res://scenes/levels/2.tscn"
 }
 
 const BROKEN_PATHS = {

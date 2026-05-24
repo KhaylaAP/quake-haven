@@ -7,7 +7,10 @@ extends StaticBody3D
 @export var min_distance := 2.0
 # Damage to decide which place is the best to hide
 @export var end_damage := 0.0
+# Check if interacted with door
+@export var is_door := false
 
+@export var camera_hide_position := Vector3(0.0, 0.3, 0.0)
 # Prop trigger zone
 @onready var area := $Area3D
 
@@ -63,15 +66,20 @@ func _on_earthquake_end() -> void:
 	if player == null:
 		return
 #	Player hiding -> deal that spot's damage
-	if player and player.is_hiding and player.current_hide_spot == self:
-		player.take_damage(end_damage)
+	if player.is_hiding and player.current_hide_spot == self:
+		var damage = end_damage if not player.is_crawling else end_damage * 0.65
+		var new_health = max(player.health - damage, 5.0)
+		player.health = new_health
+		player.health_bar.value = new_health
+		player.is_hiding = false
+		game_state.hiding_damage_applied = true
 		
 #	Player out in open & not dropped -> set health to 5
-	elif not player.is_hiding and not player.is_crawling:
+	elif not game_state.hiding_damage_applied and not player.is_hiding and not player.is_crawling:
 		player.health = 5.0
 		player.health_bar.value = player.health
 	
 #	Player out in open & dropped -> set health to 15
-	elif not player.is_hiding and player.is_crawling:
+	elif not game_state.hiding_damage_applied and not player.is_hiding and player.is_crawling:
 		player.health = 15.0
 		player.health_bar.value = player.health

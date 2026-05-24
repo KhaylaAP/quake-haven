@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctf7l8mgj8hr8"
-path.s3tc="res://.godot/imported/Flag.png-cb6b681224b37fdec046f8e6d38efafa.s3tc.ctex"
+uid="uid://tuh56fiyh3hi"
+path.s3tc="res://.godot/imported/Flag.png-2dec0a984739a48f8ee960bfd2273f5c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/img/Flag.png"
-dest_files=["res://.godot/imported/Flag.png-cb6b681224b37fdec046f8e6d38efafa.s3tc.ctex"]
+source_file="res://assets/textures/Flag.png"
+dest_files=["res://.godot/imported/Flag.png-2dec0a984739a48f8ee960bfd2273f5c.s3tc.ctex"]
 
 [params]
 

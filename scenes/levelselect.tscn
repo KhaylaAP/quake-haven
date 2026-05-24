@@ -75,12 +75,12 @@ columns = 3
 
 [node name="LevelSelectButton" parent="CenterContainer/GridContainer" unique_id=1471018865 instance=ExtResource("2_vttqt")]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
 text = "Tutorial"
 
 [node name="LevelSelectButton2" parent="CenterContainer/GridContainer" unique_id=1687983855 instance=ExtResource("2_vttqt")]
 layout_mode = 2
-text = "1"
 
 [node name="Scores" type="VBoxContainer" parent="CenterContainer/GridContainer/LevelSelectButton2" unique_id=1403440177]
 layout_mode = 1
@@ -90,8 +90,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -45.0
-offset_top = -42.0
+offset_top = -57.0
 offset_right = 45.0
+offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -105,11 +106,23 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_xuh2y")
 theme_override_font_sizes/font_size = 14
 
+[node name="TitleLabel" type="Label" parent="CenterContainer/GridContainer/LevelSelectButton2" unique_id=562350225]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -21.0
+offset_top = 11.0
+offset_right = 21.0
+offset_bottom = 101.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_xuh2y")
+theme_override_font_sizes/font_size = 75
+
 [node name="LevelSelectButton3" parent="CenterContainer/GridContainer" unique_id=1565056765 instance=ExtResource("2_vttqt")]
 layout_mode = 2
-text = "2"
 
-[node name="Scores" type="VBoxContainer" parent="CenterContainer/GridContainer/LevelSelectButton3" unique_id=1447668756]
+[node name="Scores" type="VBoxContainer" parent="CenterContainer/GridContainer/LevelSelectButton3" unique_id=240607591]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -117,26 +130,39 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -45.0
-offset_top = -42.0
+offset_top = -57.0
 offset_right = 45.0
+offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="LastScore" type="Label" parent="CenterContainer/GridContainer/LevelSelectButton3/Scores" unique_id=2114628822]
+[node name="LastScore" type="Label" parent="CenterContainer/GridContainer/LevelSelectButton3/Scores" unique_id=754507873]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_xuh2y")
 theme_override_font_sizes/font_size = 14
 
-[node name="BestScore" type="Label" parent="CenterContainer/GridContainer/LevelSelectButton3/Scores" unique_id=114286046]
+[node name="BestScore" type="Label" parent="CenterContainer/GridContainer/LevelSelectButton3/Scores" unique_id=1674925389]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_xuh2y")
 theme_override_font_sizes/font_size = 14
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/GridContainer/LevelSelectButton3" unique_id=290186912]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -21.0
+offset_top = 11.0
+offset_right = 21.0
+offset_bottom = 101.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_xuh2y")
+theme_override_font_sizes/font_size = 75
 
 [node name="LevelSelectButton4" parent="CenterContainer/GridContainer" unique_id=643248341 instance=ExtResource("2_vttqt")]
 layout_mode = 2
-text = "3"
 
-[node name="Scores" type="VBoxContainer" parent="CenterContainer/GridContainer/LevelSelectButton4" unique_id=1654171896]
+[node name="Scores" type="VBoxContainer" parent="CenterContainer/GridContainer/LevelSelectButton4" unique_id=36472619]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -144,26 +170,39 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -45.0
-offset_top = -42.0
+offset_top = -57.0
 offset_right = 45.0
+offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="LastScore" type="Label" parent="CenterContainer/GridContainer/LevelSelectButton4/Scores" unique_id=1272537849]
+[node name="LastScore" type="Label" parent="CenterContainer/GridContainer/LevelSelectButton4/Scores" unique_id=973357477]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_xuh2y")
 theme_override_font_sizes/font_size = 14
 
-[node name="BestScore" type="Label" parent="CenterContainer/GridContainer/LevelSelectButton4/Scores" unique_id=224871469]
+[node name="BestScore" type="Label" parent="CenterContainer/GridContainer/LevelSelectButton4/Scores" unique_id=395736707]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_xuh2y")
 theme_override_font_sizes/font_size = 14
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/GridContainer/LevelSelectButton4" unique_id=1479282554]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -21.0
+offset_top = 11.0
+offset_right = 21.0
+offset_bottom = 101.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_xuh2y")
+theme_override_font_sizes/font_size = 75
 
 [node name="LevelSelectButton5" parent="CenterContainer/GridContainer" unique_id=1714877607 instance=ExtResource("2_vttqt")]
 layout_mode = 2
-text = "4"
 
-[node name="Scores" type="VBoxContainer" parent="CenterContainer/GridContainer/LevelSelectButton5" unique_id=1208547775]
+[node name="Scores" type="VBoxContainer" parent="CenterContainer/GridContainer/LevelSelectButton5" unique_id=2078578229]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -171,26 +210,39 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -45.0
-offset_top = -42.0
+offset_top = -57.0
 offset_right = 45.0
+offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="LastScore" type="Label" parent="CenterContainer/GridContainer/LevelSelectButton5/Scores" unique_id=886128011]
+[node name="LastScore" type="Label" parent="CenterContainer/GridContainer/LevelSelectButton5/Scores" unique_id=589159512]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_xuh2y")
 theme_override_font_sizes/font_size = 14
 
-[node name="BestScore" type="Label" parent="CenterContainer/GridContainer/LevelSelectButton5/Scores" unique_id=1468740930]
+[node name="BestScore" type="Label" parent="CenterContainer/GridContainer/LevelSelectButton5/Scores" unique_id=1003566658]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_xuh2y")
 theme_override_font_sizes/font_size = 14
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/GridContainer/LevelSelectButton5" unique_id=2045103332]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -21.0
+offset_top = 11.0
+offset_right = 21.0
+offset_bottom = 101.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_xuh2y")
+theme_override_font_sizes/font_size = 75
 
 [node name="LevelSelectButton6" parent="CenterContainer/GridContainer" unique_id=2085192774 instance=ExtResource("2_vttqt")]
 layout_mode = 2
-text = "5"
 
-[node name="Scores" type="VBoxContainer" parent="CenterContainer/GridContainer/LevelSelectButton6" unique_id=503928418]
+[node name="Scores" type="VBoxContainer" parent="CenterContainer/GridContainer/LevelSelectButton6" unique_id=1070399161]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -198,20 +250,34 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -45.0
-offset_top = -42.0
+offset_top = -57.0
 offset_right = 45.0
+offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="LastScore" type="Label" parent="CenterContainer/GridContainer/LevelSelectButton6/Scores" unique_id=131267274]
+[node name="LastScore" type="Label" parent="CenterContainer/GridContainer/LevelSelectButton6/Scores" unique_id=213249135]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_xuh2y")
 theme_override_font_sizes/font_size = 14
 
-[node name="BestScore" type="Label" parent="CenterContainer/GridContainer/LevelSelectButton6/Scores" unique_id=1532401829]
+[node name="BestScore" type="Label" parent="CenterContainer/GridContainer/LevelSelectButton6/Scores" unique_id=1305593825]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_xuh2y")
 theme_override_font_sizes/font_size = 14
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/GridContainer/LevelSelectButton6" unique_id=2090955660]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -21.0
+offset_top = 11.0
+offset_right = 21.0
+offset_bottom = 101.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_xuh2y")
+theme_override_font_sizes/font_size = 75
 
 [node name="Button2" type="Button" parent="." unique_id=204468288]
 layout_mode = 0

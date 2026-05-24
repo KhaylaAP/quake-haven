@@ -4,10 +4,12 @@ var level_index := 0
 
 func setup(index: int) -> void:
 	level_index = index
-	if index == 0:
-		text = "Tutorial"
-	else:
-		text = str(index)
+	var title_label := get_node_or_null("TitleLabel")
+	if title_label:
+		if index == 0:
+			title_label.text = "Tutorial"
+		else:
+			title_label.text = str(index)
 		
 	if game_state.is_level_unlocked(index):
 		modulate.a = 1.0

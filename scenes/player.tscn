@@ -324,6 +324,19 @@ animations = [{
 [sub_resource type="BoxShape3D" id="BoxShape3D_fjrip"]
 size = Vector3(1.36, 1.6585342, 1.36)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qhqgy"]
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_min = 1.0
+initial_velocity_max = 3.0
+scale_max = 1.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqkch"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qlg0r"]
+material = SubResource("StandardMaterial3D_dqkch")
+size = Vector3(0.1, 0.1, 0.1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qhqgy"]
 border_width_left = 2
 border_width_top = 2
@@ -338,9 +351,6 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0, 0, 0, 1)
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_qhqgy"]
-viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qlg0r"]
 bg_color = Color(0.32156864, 0.32156864, 0.32156864, 0.3372549)
@@ -362,35 +372,39 @@ frame_progress = 0.2563576
 transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0, -0.05980795, 0)
 shape = SubResource("BoxShape3D_fjrip")
 
-[node name="SubViewport" type="SubViewport" parent="." unique_id=1458826082]
-size = Vector2i(150, 27)
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=530260907]
+emitting = false
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_qhqgy")
+draw_pass_1 = SubResource("BoxMesh_qlg0r")
 
-[node name="ProgressBar" type="ProgressBar" parent="SubViewport" unique_id=1496410951]
-custom_minimum_size = Vector2(150, 8)
-offset_right = 150.0
-offset_bottom = 27.0
+[node name="HealthBar2" type="CanvasLayer" parent="." unique_id=854232726]
+
+[node name="ProgressBar" type="ProgressBar" parent="HealthBar2" unique_id=1496410951]
+custom_minimum_size = Vector2(450, 35)
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 460.0
+offset_bottom = 45.0
 theme_override_styles/background = SubResource("StyleBoxFlat_qhqgy")
 theme_override_styles/fill = SubResource("StyleBoxFlat_dqkch")
 step = 1.0
 value = 50.0
 show_percentage = false
 
-[node name="HealthBar" type="Sprite3D" parent="." unique_id=599829409]
-transform = Transform3D(0.11, 0, 0, 0, 0.11, 0, 0, 0, 0.11, 0, 0.11920443, 0)
-billboard = 1
-texture = SubResource("ViewportTexture_qhqgy")
-
 [node name="ControlsHUD" type="CanvasLayer" parent="." unique_id=1420285172]
 
 [node name="Panel" type="Panel" parent="ControlsHUD" unique_id=1551934323]
-offset_right = 170.0
-offset_bottom = 122.0
+offset_left = 10.0
+offset_top = 45.0
+offset_right = 231.0
+offset_bottom = 231.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_qlg0r")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ControlsHUD/Panel" unique_id=1807357332]
 layout_mode = 1
-offset_right = 153.0
-offset_bottom = 147.0
+offset_right = 221.0
+offset_bottom = 186.0
 
 [node name="Label" type="Label" parent="ControlsHUD/Panel/VBoxContainer" unique_id=1494069793]
 layout_mode = 2
@@ -410,5 +424,9 @@ text = "Space - Jump"
 [node name="Label3" type="Label" parent="ControlsHUD/Panel/VBoxContainer" unique_id=1268594403]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "WASD - Move
-"
+text = "WASD - Move"
+
+[node name="Label5" type="Label" parent="ControlsHUD/Panel/VBoxContainer" unique_id=118282064]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "← → - Turn Camera"

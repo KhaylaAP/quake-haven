@@ -13,13 +13,18 @@ var is_crawling := false
 var current_hide_spot: Node3D = null
 
 @onready var sprite := $AnimatedSprite3D
-@onready var health_bar := $SubViewport/ProgressBar
+@onready var health_bar := $HealthBar2/ProgressBar
 @onready var controls_hud := $ControlsHUD/Panel
+@onready var hit_particles := $GPUParticles3D
 
 func _ready() -> void:
 	if game_state.has_player_pos:
 		global_position = game_state.last_player_pos
 		health = game_state.last_player_health
+	
+	if game_state.was_hiding:
+		is_hiding = true
+		sprite.visible = false
 
 	add_to_group("player")
 	health_bar.max_value = max_health
@@ -43,7 +48,15 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+
+#	Input changes based on camera 
+	var angle_rad := deg_to_rad(-game_state.camera_angle)
+	var rotated_input := Vector2(
+		input_dir.x * cos(angle_rad) - input_dir.y * sin(angle_rad),
+		input_dir.x * sin(angle_rad) + input_dir.y * cos(angle_rad)
+	)
+	
+	var direction := Vector3(rotated_input.x, 0, rotated_input.y).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
@@ -89,6 +102,10 @@ func _input(event: InputEvent) -> void:
 		return
 		
 	if Input.is_action_just_pressed("interact"):
+		if current_hide_spot != null and current_hide_spot.get("is_door"):
+			get_tree().change_scene_to_file("res://scenes/gameover.tscn")
+			return
+			
 		if is_hiding:
 			_unhide()
 #		If near hidding spot
@@ -107,22 +124,27 @@ func _input(event: InputEvent) -> void:
 func _hide() -> void:
 	is_hiding = true
 	sprite.visible = false
+	game_state.was_hiding = true
+	game_state.camera_under_table = true
+	game_state.camera_hide_pos = current_hide_spot.global_position + current_hide_spot.camera_hide_position
 
 func _unhide() -> void:
 	is_hiding = false
 #	Make player invisible when hiding
 	sprite.visible = true
+	game_state.was_hiding = false
+	game_state.camera_under_table = false
 	
 func set_nearby_spot(spot: Node3D, label: String) -> void:
 #	Set which propt player is near at
 	current_hide_spot = spot
-	print("Press F to hide: ", label)
+	#print("Press F to hide: ", label)
 	
 func clear_nearby_spot(spot: Node3D) -> void:
 #	Clear if in the same spot
 	if current_hide_spot == spot:
 		current_hide_spot = null
-		print("")
+		#print("")
 
 
 func take_damage(amount: float) -> void:
@@ -139,7 +161,9 @@ func take_damage(amount: float) -> void:
 	
 	health -= amount
 	health_bar.value = health
-	print("Health: ", health)
+	#print("Health: ", health)
+	
+	_flash_damage()
 	
 	if health <= 0:
 		_die()
@@ -149,7 +173,7 @@ func _die() -> void:
 	game_state.player_can_move = false
 	sprite.play("crawl_left")
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/gameover.tscn")
-	print("Died")
+	#print("Died")
 	
 func _show_controls_hint() -> void:
 	controls_hud.modulate.a = 1.0
@@ -160,3 +184,10 @@ func _show_controls_hint() -> void:
 	tween.tween_property(controls_hud, "modulate:a", 0.0, 1.5)
 	await tween.finished
 	controls_hud.visible = false
+
+func _flash_damage() -> void:
+	sprite.modulate = Color(1.0, 0.3, 0.3)
+	var tween = create_tween()
+	tween.tween_property(sprite, "modulate", Color(1.0, 1.0, 1.0), 0.3)
+	
+	hit_particles.restart()

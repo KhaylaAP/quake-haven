@@ -15,9 +15,11 @@ extends Area3D
 
 @export var earthquake_enabled := true
 
-@export var earthquake_duration := 15
-@export var debris_min := 0
+@export var earthquake_duration := 10
+@export var debris_min := 10
 @export var debris_max := 50
+
+@export var rotate_speed := 90.0
 
 #Shake intensity
 var trauma := 0.0
@@ -26,12 +28,16 @@ var time := 0.0
 
 var earthquake_active := false
 
+var original_position : Vector3
+
+
 @onready var camera := $Camera3D as Camera3D
 @onready var initial_rotation := camera.rotation_degrees as Vector3
 # BlackScreen
 @onready var black_screen := $CanvasLayer/BlackScreen
 
 func _ready() -> void:
+	original_position = position
 	if not earthquake_enabled:
 		return
 	
@@ -48,6 +54,20 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	time += delta
+	
+	if game_state.camera_under_table:
+		global_position = global_position.lerp(game_state.camera_hide_pos, delta * 5.0)
+	else:
+		var angle_rad := deg_to_rad(-game_state.camera_angle)
+		var offset_x := 0.017
+		var offset_z := -0.29
+		var radius := sqrt(offset_x * offset_x + offset_z * offset_z)
+		var target_pos : Vector3 = Vector3(
+			radius * sin(angle_rad),
+			original_position.y,
+			-radius * cos(angle_rad)
+		)
+		position = position.lerp(target_pos, delta * 5.0)
 	
 	if earthquake_active:
 #		Refill trauma so it doesnt decay
@@ -74,6 +94,7 @@ func get_noise_from_seed(_seed : int) -> float:
 	return noise.get_noise_1d(time * noise_speed)
 
 func _start_earthquake(duration: float) -> void:
+	game_state.hiding_damage_applied = false
 	earthquake_active = true
 	game_state.earthquake_start.emit()
 	await get_tree().create_timer(duration).timeout
@@ -107,3 +128,31 @@ func _fade_scene(scene_path: String) -> void:
 	await tween.finished
 	
 	black_screen.visible = false
+
+func _input(event: InputEvent) -> void:
+	if not game_state.player_can_move:
+		return
+	if Input.is_action_just_pressed("ui_right"):
+		_rotate_camera(-90.0)
+	elif Input.is_action_just_pressed("ui_left"):
+		_rotate_camera(90.0)
+		
+# Arrow keys to rotate camera
+func _rotate_camera(degrees: float) -> void:
+	game_state.camera_angle += degrees
+	var angle_rad := deg_to_rad(game_state.camera_angle)
+	
+	var offset_x := 0.017
+	var offset_z := -0.29
+	var radius := sqrt(offset_x * offset_x + offset_z * offset_z)
+	
+	var new_x := radius * sin(-angle_rad)
+	var new_z := -radius * cos(-angle_rad)
+	
+	var tween = create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(self, "rotation_degrees:y", rotation_degrees.y + degrees, 0.3)
+	tween.tween_property(self, "position:x", new_x, 0.3)
+	tween.tween_property(self, "position:z", new_z, 0.3)
+	await tween.finished
+	initial_rotation = camera.rotation_degrees

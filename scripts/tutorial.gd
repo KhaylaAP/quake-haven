@@ -8,8 +8,14 @@ func _ready() -> void:
 	skip_btn.pressed.connect(_finish_tutorial)
 	anim.animation_finished.connect(_on_animation_finished)
 	anim.play("tutorial")
+	
+func _process(delta: float) -> void:
+	if Input.is_action_pressed("ui_accept"):
+		anim.speed_scale = 3.0
+	else:
+		anim.speed_scale = 1.0
 
-func _on_animation_finished() -> void:
+func _on_animation_finished(anim_name: String) -> void:
 	_finish_tutorial()
 	
 func _finish_tutorial() -> void:

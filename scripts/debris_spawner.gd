@@ -40,14 +40,14 @@ func _spawn_one(timer: Timer) -> void:
 	get_tree().current_scene.add_child(debris)
 	
 #	Temp to spawn at x & z 0
-	debris.global_position = Vector3(-2.5, spawn_height, -0.5)
+	#debris.global_position = Vector3(-2.5, spawn_height, -0.5)
 	
 	
-	#debris.global_position = Vector3(
-		#randf_range(room_min.x, room_max.x),
-		#spawn_height,
-		#randf_range(room_min.z, room_max.z),	
-	#)
+	debris.global_position = Vector3(
+		randf_range(room_min.x, room_max.x),
+		spawn_height,
+		randf_range(room_min.z, room_max.z),	
+	)
 	
 	spawned += 1
 	
