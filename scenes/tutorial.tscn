@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://b5olim2t5s0yy" path="res://assets/img/charles-crawl.png" id="2_ph3nu"]
 [ext_resource type="Texture2D" uid="uid://cmo6xs1y1qrhr" path="res://assets/img/Door.png" id="4_4kmhl"]
 [ext_resource type="Texture2D" uid="uid://oxfxafye6jnc" path="res://assets/img/Windows.png" id="5_cq4me"]
+[ext_resource type="Texture2D" uid="uid://ba5vsbli472w2" path="res://assets/img/Sofa.png" id="6_g2equ"]
 [ext_resource type="FontFile" uid="uid://d3agbbgwjnkm8" path="res://assets/fonts/RubikSprayPaint-Regular.ttf" id="7_gbqnl"]
+[ext_resource type="Texture2D" uid="uid://c3v5vytecqsrn" path="res://assets/img/BlankWall.png" id="8_0epgs"]
 [ext_resource type="Texture2D" uid="uid://tuh56fiyh3hi" path="res://assets/textures/Flag.png" id="8_nlqja"]
 
 [sub_resource type="Animation" id="Animation_4kmhl"]
@@ -264,11 +266,59 @@ tracks/20/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Avoid/BlankWall:modulate")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Avoid/Label14:visible_ratio")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Cover/Label9:visible_ratio")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Cover/Sofa:modulate")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_cq4me"]
 resource_name = "tutorial"
-length = 65.0
-step = 1.0
+length = 77.0
+step = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -408,7 +458,7 @@ tracks/11/path = NodePath("Avoid/Label9:visible_ratio")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(37.5, 39, 40, 41),
+"times": PackedFloat32Array(43.5, 45, 46, 47),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 1.0, 1.0, 0.0]
@@ -420,7 +470,7 @@ tracks/12/path = NodePath("Avoid/Label10:visible_ratio")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(42, 43, 44, 45),
+"times": PackedFloat32Array(48, 49, 50, 51),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 1.0, 1.0, 0.0]
@@ -432,7 +482,7 @@ tracks/13/path = NodePath("Avoid/Door:modulate")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(42, 43, 58, 59.5),
+"times": PackedFloat32Array(48, 49, 64, 65.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -444,7 +494,7 @@ tracks/14/path = NodePath("Avoid/Label11:visible_ratio")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
-"times": PackedFloat32Array(45.5, 47, 49, 50),
+"times": PackedFloat32Array(51.5, 53, 55, 56),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 1.0, 1.0, 0.0]
@@ -456,7 +506,7 @@ tracks/15/path = NodePath("Avoid/Windows:modulate")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
-"times": PackedFloat32Array(50.5, 52, 58, 59.5),
+"times": PackedFloat32Array(56.5, 58, 64, 65.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -468,7 +518,7 @@ tracks/16/path = NodePath("Avoid/Label12:visible_ratio")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
-"times": PackedFloat32Array(50.5, 52, 53, 54),
+"times": PackedFloat32Array(56.5, 58, 59, 60),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 1.0, 1.0, 0.0]
@@ -480,7 +530,7 @@ tracks/17/path = NodePath("Avoid/Label13:visible_ratio")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
-"times": PackedFloat32Array(54.5, 56, 58, 59.5),
+"times": PackedFloat32Array(60.5, 62, 64, 65.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 1.0, 1.0, 0.0]
@@ -504,7 +554,7 @@ tracks/19/path = NodePath("Ending/Flag:modulate")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
-"times": PackedFloat32Array(60.5, 62, 63, 64.5),
+"times": PackedFloat32Array(71.5, 73, 74, 75.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -516,10 +566,58 @@ tracks/20/path = NodePath("Ending/Label14:visible_ratio")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
-"times": PackedFloat32Array(60.5, 62, 63, 64.5),
+"times": PackedFloat32Array(71.5, 73, 74, 75.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 1.0, 1.0, 0.0]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Avoid/BlankWall:modulate")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(66.5, 68, 69, 70.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Avoid/Label14:visible_ratio")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(66.5, 68, 69, 70.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Cover/Label9:visible_ratio")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(37.5, 39, 41, 42.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Cover/Sofa:modulate")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(37.5, 39, 41, 42.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6yjpi"]
@@ -740,6 +838,30 @@ vertical_alignment = 1
 visible_characters = 0
 visible_ratio = 0.0
 
+[node name="Label9" type="Label" parent="Cover" unique_id=714878122]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -513.0
+offset_top = 40.0
+offset_right = 513.0
+offset_bottom = 247.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 48
+text = "If you are in bed or on a sofa that has pillow.
+Stay there and place a pillow 
+over your head and neck."
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Sofa" type="Sprite2D" parent="Cover" unique_id=538110721]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(585, 406)
+scale = Vector2(0.7038654, 0.70386535)
+texture = ExtResource("6_g2equ")
+
 [node name="Avoid" type="Node" parent="." unique_id=1268013487]
 
 [node name="Label9" type="Label" parent="Avoid" unique_id=2088044802]
@@ -813,6 +935,23 @@ vertical_alignment = 1
 visible_characters = 0
 visible_ratio = 0.0
 
+[node name="Label14" type="Label" parent="Avoid" unique_id=227360733]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -617.5
+offset_top = 72.0
+offset_right = 617.5
+offset_bottom = 209.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 48
+text = "When there is no suitable place to hide,
+DROP near an interior wall."
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
 [node name="Door" type="Sprite2D" parent="Avoid" unique_id=63986335]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(323, 403)
@@ -824,6 +963,12 @@ modulate = Color(1, 1, 1, 0)
 position = Vector2(888.99994, 401.99997)
 scale = Vector2(0.67062026, 0.67062044)
 texture = ExtResource("5_cq4me")
+
+[node name="BlankWall" type="Sprite2D" parent="Avoid" unique_id=334578366]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(591, 402)
+scale = Vector2(0.67062026, 0.67062044)
+texture = ExtResource("8_0epgs")
 
 [node name="Ending" type="Node" parent="." unique_id=174733985]
 

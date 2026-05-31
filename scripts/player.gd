@@ -24,7 +24,11 @@ func _ready() -> void:
 	
 	if game_state.was_hiding:
 		is_hiding = true
-		sprite.visible = false
+		if game_state.was_hiding_sofa or game_state.was_hiding_wall:
+			sprite.visible = true
+			sprite.play("crawl_right")
+		else:
+			sprite.visible = false
 
 	add_to_group("player")
 	health_bar.max_value = max_health
@@ -123,8 +127,30 @@ func _input(event: InputEvent) -> void:
 	
 func _hide() -> void:
 	is_hiding = true
-	sprite.visible = false
 	game_state.was_hiding = true
+	
+	if current_hide_spot.get("is_sofa"):
+		sprite.visible = true
+		sprite.play("crawl_right")
+		game_state.was_hiding_sofa = true
+		
+		var sofa_pos = current_hide_spot.global_position
+		var tween = create_tween()
+		tween.set_parallel(true)
+		tween.tween_property(self, "global_position", Vector3(sofa_pos.x, global_position.y + 0.15, sofa_pos.z), 0.3)
+		
+		var pillow = current_hide_spot.get_node(current_hide_spot.pillow_path)
+		tween.tween_property(pillow, "global_position", Vector3(sofa_pos.x, sofa_pos.y + 1.5, sofa_pos.z), 0.3)
+		return
+	
+	if current_hide_spot.get("is_wall"):
+		sprite.visible = true
+		sprite.play("crawl_right")
+		game_state.was_hiding = true
+		game_state.was_hiding_wall = true
+		return
+	
+	sprite.visible = false
 	game_state.camera_under_table = true
 	game_state.camera_hide_pos = current_hide_spot.global_position + current_hide_spot.camera_hide_position
 
@@ -133,7 +159,15 @@ func _unhide() -> void:
 #	Make player invisible when hiding
 	sprite.visible = true
 	game_state.was_hiding = false
+	game_state.was_hiding_sofa = false
+	game_state.was_hiding_wall = false
 	game_state.camera_under_table = false
+	
+	if current_hide_spot != null and current_hide_spot.get("is_sofa"):
+		var pillow = current_hide_spot.get_node(current_hide_spot.pillow_path)
+		var tween = create_tween()
+		tween.tween_property(pillow, "global_position", current_hide_spot.global_position + Vector3(0, 0.6, 0), 0.3)
+		sprite.play('idle')
 	
 func set_nearby_spot(spot: Node3D, label: String) -> void:
 #	Set which propt player is near at

@@ -30,7 +30,6 @@ var earthquake_active := false
 
 var original_position : Vector3
 
-
 @onready var camera := $Camera3D as Camera3D
 @onready var initial_rotation := camera.rotation_degrees as Vector3
 # BlackScreen
@@ -118,6 +117,11 @@ func _fade_scene(scene_path: String) -> void:
 	game_state.has_player_pos = true
 	game_state.save_score()
 	
+#	Reset camera
+	game_state.camera_angle = 0.0
+	game_state.hiding_damage_applied = false
+	game_state.earthquake_active = false
+	
 #	Change scene
 	get_tree().call_deferred("change_scene_to_file", scene_path)
 	await get_tree().process_frame
@@ -137,6 +141,9 @@ func _input(event: InputEvent) -> void:
 	elif Input.is_action_just_pressed("ui_left"):
 		_rotate_camera(90.0)
 		
+
+var rotate_tween: Tween
+
 # Arrow keys to rotate camera
 func _rotate_camera(degrees: float) -> void:
 	game_state.camera_angle += degrees
@@ -149,10 +156,13 @@ func _rotate_camera(degrees: float) -> void:
 	var new_x := radius * sin(-angle_rad)
 	var new_z := -radius * cos(-angle_rad)
 	
-	var tween = create_tween()
-	tween.set_parallel(true)
-	tween.tween_property(self, "rotation_degrees:y", rotation_degrees.y + degrees, 0.3)
-	tween.tween_property(self, "position:x", new_x, 0.3)
-	tween.tween_property(self, "position:z", new_z, 0.3)
-	await tween.finished
+	if rotate_tween:
+		rotate_tween.kill()
+	
+	rotate_tween = create_tween()
+	rotate_tween.set_parallel(true)
+	rotate_tween.tween_property(self, "rotation_degrees:y", rotation_degrees.y + degrees, 0.3)
+	rotate_tween.tween_property(self, "position:x", new_x, 0.3)
+	rotate_tween.tween_property(self, "position:z", new_z, 0.3)
+	await rotate_tween.finished
 	initial_rotation = camera.rotation_degrees

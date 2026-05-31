@@ -55,6 +55,9 @@ func _on_body_entered(body: Node) -> void:
 		return
 	if body.has_method("take_damage"):
 		has_hit = true
+		var actual_damage = damage
+		if body.is_hiding and (body.current_hide_spot.get("is_sofa") or body.current_hide_spot.get("is_wall")):
+			actual_damage = damage * 0.75
 		body.take_damage(damage)
 		
 	await get_tree().create_timer(impact_particles.lifetime + 0.1).timeout

@@ -42,7 +42,6 @@ func _spawn_one(timer: Timer) -> void:
 #	Temp to spawn at x & z 0
 	#debris.global_position = Vector3(-2.5, spawn_height, -0.5)
 	
-	
 	debris.global_position = Vector3(
 		randf_range(room_min.x, room_max.x),
 		spawn_height,

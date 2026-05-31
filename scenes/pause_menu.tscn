@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://d2y3si4aqmrec"]
+
+[ext_resource type="Script" uid="uid://k50k0kt27jtm" path="res://scripts/pause_menu.gd" id="1_myx47"]
+[ext_resource type="FontFile" uid="uid://d3agbbgwjnkm8" path="res://assets/fonts/RubikSprayPaint-Regular.ttf" id="1_n87rw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ckvwl"]
+bg_color = Color(0.3840355, 0.5700958, 0.8896269, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.24115604, 0.24115604, 0.24115604, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(3.525, 3.47)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nlqja"]
+bg_color = Color(0.24313726, 0.33333334, 0.5529412, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.24115604, 0.24115604, 0.24115604, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(3.525, 3.47)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0epgs"]
+bg_color = Color(0.34116492, 0.44574183, 0.6950461, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.24115604, 0.24115604, 0.24115604, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(3.525, 3.47)
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1036098452]
+process_mode = 3
+script = ExtResource("1_myx47")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=759802573]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.60784316)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2073340634]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -182.875
+offset_top = -85.0
+offset_right = 182.875
+offset_bottom = 236.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=1154350215]
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_n87rw")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_ckvwl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nlqja")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0epgs")
+text = "RESUME"
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=1764171177]
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_n87rw")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_ckvwl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nlqja")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0epgs")
+text = "RESTART"
+
+[node name="Button3" type="Button" parent="VBoxContainer" unique_id=1561298034]
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_n87rw")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_ckvwl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nlqja")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0epgs")
+text = "EXIT"
+
+[node name="Label" type="Label" parent="." unique_id=1777422527]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -212.0
+offset_top = 70.0
+offset_right = 212.0
+offset_bottom = 189.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_n87rw")
+theme_override_font_sizes/font_size = 100
+text = "PAUSED"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_exit_button_pressed"]

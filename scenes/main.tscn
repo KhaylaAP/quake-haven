@@ -3,6 +3,7 @@
 [ext_resource type="MeshLibrary" uid="uid://dvlfior1rye1o" path="res://assets/mesh_lib/base.meshlib" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://dxfyakmfnqhx6" path="res://scenes/player.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://vu4k4n1i85yk" path="res://scenes/shakeable_camera.tscn" id="3_tipki"]
+[ext_resource type="PackedScene" uid="uid://d2y3si4aqmrec" path="res://scenes/pause_menu.tscn" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://bprvp24t78qa4" path="res://scenes/debris_spawner.tscn" id="10_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://blngikciocyqm" path="res://scenes/debris.tscn" id="11_eb6dy"]
 
@@ -43,3 +44,5 @@ transform = Transform3D(-0.1, 0, -8.742278e-09, 0, 0.1, 0, 8.742278e-09, 0, -0.1
 
 [node name="debris_spawner" parent="." unique_id=1068327904 instance=ExtResource("10_ya4ey")]
 debris_scene = ExtResource("11_eb6dy")
+
+[node name="PauseMenu" parent="." unique_id=1036098452 instance=ExtResource("6_tefeu")]

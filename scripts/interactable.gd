@@ -9,6 +9,10 @@ extends StaticBody3D
 @export var end_damage := 0.0
 # Check if interacted with door
 @export var is_door := false
+# Check if interacted with sofa
+@export var is_sofa := false
+
+@export var pillow_path: NodePath
 
 @export var camera_hide_position := Vector3(0.0, 0.3, 0.0)
 # Prop trigger zone
@@ -33,6 +37,10 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	
 func _process(delta: float) -> void:
+	if player == null:
+		player = get_tree().get_first_node_in_group("player")
+		return
+		
 	var mesh = get_parent() as MeshInstance3D
 	var my_position
 	
@@ -71,7 +79,9 @@ func _on_earthquake_end() -> void:
 		var new_health = max(player.health - damage, 5.0)
 		player.health = new_health
 		player.health_bar.value = new_health
-		player.is_hiding = false
+		var no_cover = get("is_sofa") or get("is_wall")
+		if not no_cover:
+			player.is_hiding = false
 		game_state.hiding_damage_applied = true
 		
 #	Player out in open & not dropped -> set health to 5
