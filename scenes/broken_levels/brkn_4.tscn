@@ -537,7 +537,7 @@ mesh = SubResource("ArrayMesh_jky83")
 shape = SubResource("ConcavePolygonShape3D_app6t")
 
 [node name="table_medium_long7" type="MeshInstance3D" parent="Props" index="8" unique_id=1399356143]
-transform = Transform3D(1.2020211, 0, 0.3429945, 0, 1.25, 0, -0.3429945, 0, 1.2020211, 6.918704, 2.000001, 6.2726316)
+transform = Transform3D(1.1111218, 0, -0.5726333, 0, 1.2500001, 0, 0.5726333, 0, 1.1111218, 6.8221474, 2.000001, 7.075477)
 material_overlay = SubResource("ShaderMaterial_0e7nh")
 mesh = SubResource("ArrayMesh_5ubid")
 
@@ -575,7 +575,7 @@ shape = SubResource("BoxShape3D_j7bw1")
 debug_color = Color(2.695322e-06, 0.6423934, 0.3237595, 0.41960785)
 
 [node name="chair_B_wood13" type="MeshInstance3D" parent="Props" index="10" unique_id=1962640241]
-transform = Transform3D(1.195432, 0, -0.36529773, 0, 1.25, 0, 0.36529773, 0, 1.195432, 7.2748384, 2, 3.9205146)
+transform = Transform3D(1.195432, 0, -0.36529773, 0, 1.25, 0, 0.36529773, 0, 1.195432, 7.612175, 2, 2.7241826)
 mesh = SubResource("ArrayMesh_jky83")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Props/chair_B_wood13" index="0" unique_id=1004534010]
@@ -584,7 +584,7 @@ mesh = SubResource("ArrayMesh_jky83")
 shape = SubResource("ConcavePolygonShape3D_app6t")
 
 [node name="chair_B_wood14" type="MeshInstance3D" parent="Props" index="11" unique_id=881384030]
-transform = Transform3D(0.9499121, 0, 0.8125066, 0, 1.25, 0, -0.8125066, 0, 0.9499121, 4.9338565, 1.9999995, 4.406561)
+transform = Transform3D(1.2117424, 0, -0.30688792, 0, 1.2500001, 0, 0.30688792, 0, 1.2117424, 6.4181476, 1.9999995, 0.65957355)
 mesh = SubResource("ArrayMesh_jky83")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Props/chair_B_wood14" index="0" unique_id=2098538752]
@@ -602,7 +602,7 @@ mesh = SubResource("ArrayMesh_jky83")
 shape = SubResource("ConcavePolygonShape3D_app6t")
 
 [node name="chair_B_wood16" type="MeshInstance3D" parent="Props" index="13" unique_id=1213737081]
-transform = Transform3D(1.1649861, 0, 0.45310855, 0, 1.25, 0, -0.45310855, 0, 1.1649861, 2.9678545, 2.0000002, 5.1529384)
+transform = Transform3D(1.1649861, 0, 0.45310855, 0, 1.25, 0, -0.45310855, 0, 1.1649861, 2.0390708, 2.0000002, 4.938564)
 mesh = SubResource("ArrayMesh_jky83")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Props/chair_B_wood16" index="0" unique_id=1543649186]

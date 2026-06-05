@@ -469,7 +469,7 @@ mesh = SubResource("ArrayMesh_r45gf")
 shape = SubResource("ConcavePolygonShape3D_tu0wu")
 
 [node name="lamp_standing3" type="MeshInstance3D" parent="Props" index="2" unique_id=1561486029]
-transform = Transform3D(0.78370315, 1.2789878, 0, -1.2789878, 0.78370315, 0, 0, 0, 1.5000002, -7.9720826, 2.1337972, 7.0133758)
+transform = Transform3D(0.6217619, 1.0147028, 0.91312146, -1.2789878, 0.7837032, 0, -0.4770774, -0.77858067, 1.1900462, -7.9720826, 2.1337972, 7.0133758)
 mesh = SubResource("ArrayMesh_r45gf")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Props/lamp_standing3" index="0" unique_id=243312192]

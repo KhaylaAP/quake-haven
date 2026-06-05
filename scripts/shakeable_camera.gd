@@ -1,5 +1,6 @@
 extends Area3D
 
+
 #How much trauma decreases each second
 @export var trauma_reduction_rate := 1.0
 
@@ -30,6 +31,8 @@ var earthquake_active := false
 
 var original_position : Vector3
 
+var intro_done := false
+
 @onready var camera := $Camera3D as Camera3D
 @onready var initial_rotation := camera.rotation_degrees as Vector3
 # BlackScreen
@@ -38,6 +41,7 @@ var original_position : Vector3
 func _ready() -> void:
 	original_position = position
 	if not earthquake_enabled:
+		intro_done = true
 		return
 	
 #	Rotate camera 360
@@ -45,6 +49,9 @@ func _ready() -> void:
 	tween.tween_property(camera, "rotation_degrees:y", camera.rotation_degrees.y + 360, 5.0)
 	await tween.finished
 	
+	initial_rotation = camera.rotation_degrees
+	intro_done = true
+	initial_rotation = camera.rotation_degrees
 	game_state.player_can_move = true
 	
 #	Wait 5 seconds before earthquake starts
@@ -67,6 +74,9 @@ func _process(delta: float) -> void:
 			-radius * cos(angle_rad)
 		)
 		position = position.lerp(target_pos, delta * 5.0)
+	
+	if not intro_done:
+		return
 	
 	if earthquake_active:
 #		Refill trauma so it doesnt decay

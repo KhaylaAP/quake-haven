@@ -11,6 +11,7 @@
 [ext_resource type="FontFile" uid="uid://d3agbbgwjnkm8" path="res://assets/fonts/RubikSprayPaint-Regular.ttf" id="7_gbqnl"]
 [ext_resource type="Texture2D" uid="uid://c3v5vytecqsrn" path="res://assets/img/BlankWall.png" id="8_0epgs"]
 [ext_resource type="Texture2D" uid="uid://tuh56fiyh3hi" path="res://assets/textures/Flag.png" id="8_nlqja"]
+[ext_resource type="Texture2D" uid="uid://c6i1ban8s3fqc" path="res://assets/textures/charles_happy.png" id="11_tbcdj"]
 
 [sub_resource type="Animation" id="Animation_4kmhl"]
 length = 30.0
@@ -314,10 +315,34 @@ tracks/24/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Ending/Label15:visible_ratio")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Ending/Player:modulate")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_cq4me"]
 resource_name = "tutorial"
-length = 77.0
+length = 80.0
 step = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -615,6 +640,30 @@ tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/keys = {
 "times": PackedFloat32Array(37.5, 39, 41, 42.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Ending/Label15:visible_ratio")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(75.97211, 77, 78, 79),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Ending/Player:modulate")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(75.97211, 77, 78, 79),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -995,6 +1044,30 @@ texture_filter = 1
 position = Vector2(590.99994, 430)
 scale = Vector2(10, 10)
 texture = ExtResource("8_nlqja")
+
+[node name="Label15" type="Label" parent="Ending" unique_id=1707730231]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -617.5
+offset_top = 72.0
+offset_right = 617.5
+offset_bottom = 209.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 48
+text = "Try out different hiding spots
+ to get different scores!"
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Player" type="Sprite2D" parent="Ending" unique_id=783548212]
+modulate = Color(1, 1, 1, 0)
+texture_filter = 1
+position = Vector2(591, 320.00003)
+scale = Vector2(15, 15)
+texture = ExtResource("11_tbcdj")
 
 [node name="Button" type="CanvasLayer" parent="." unique_id=1275615263]
 

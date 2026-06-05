@@ -1232,7 +1232,7 @@ mesh = SubResource("ArrayMesh_c0iiu")
 shape = SubResource("ConcavePolygonShape3D_6msj5")
 
 [node name="table_medium_long3" type="MeshInstance3D" parent="Props" index="15" unique_id=113816006]
-transform = Transform3D(-0.90458274, 0, -0.8626877, 0, 1.25, 0, 0.8626877, 0, -0.90458274, -2.5238404, 2, 6.6626115)
+transform = Transform3D(-1.169251, 0, -0.44198638, 0, 1.2499999, 0, 0.44198638, 0, -1.169251, -2.7915292, 2.0000005, 6.973178)
 material_overlay = SubResource("ShaderMaterial_r0dua")
 mesh = SubResource("ArrayMesh_6wp2l")
 
