@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 var SPEED = 8.0
-const JUMP_VELOCITY = 8.5
+const JUMP_VELOCITY = 7.5
 
 # Health
 var max_health := 100.0
@@ -162,6 +162,15 @@ func _unhide() -> void:
 	game_state.was_hiding_sofa = false
 	game_state.was_hiding_wall = false
 	game_state.camera_under_table = false
+	
+	var cam = get_tree().get_first_node_in_group("shakeable_camera")
+	if cam:
+		cam.reset_camera_position()
+	
+	var pivot = get_node("pivot")
+	if pivot:
+		var tween = create_tween()
+		tween.tween_property(pivot, "rotation_degrees:y", game_state.camera_angle, 0.3)
 	
 	if current_hide_spot != null and current_hide_spot.get("is_sofa"):
 		var pillow = current_hide_spot.get_node(current_hide_spot.pillow_path)

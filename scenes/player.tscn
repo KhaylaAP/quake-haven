@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bj50nwxign4yd" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://bdf1xvk62uerm" path="res://assets/textures/charles-crawl.png" id="2_dqkch"]
+[ext_resource type="FontFile" uid="uid://d3agbbgwjnkm8" path="res://assets/fonts/RubikSprayPaint-Regular.ttf" id="4_dqkch"]
 [ext_resource type="Texture2D" uid="uid://cpemk0enmy6ya" path="res://assets/textures/charles.png" id="4_qlg0r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a38lo"]
@@ -382,15 +383,19 @@ draw_pass_1 = SubResource("BoxMesh_qlg0r")
 
 [node name="ProgressBar" type="ProgressBar" parent="HealthBar2" unique_id=1496410951]
 custom_minimum_size = Vector2(450, 35)
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 460.0
-offset_bottom = 45.0
+offset_left = 52.0
+offset_right = 502.0
+offset_bottom = 35.0
 theme_override_styles/background = SubResource("StyleBoxFlat_qhqgy")
 theme_override_styles/fill = SubResource("StyleBoxFlat_dqkch")
 step = 1.0
 value = 50.0
 show_percentage = false
+
+[node name="Label" type="Label" parent="HealthBar2" unique_id=2754243]
+theme_override_fonts/font = ExtResource("4_dqkch")
+theme_override_font_sizes/font_size = 24
+text = "HP: "
 
 [node name="ControlsHUD" type="CanvasLayer" parent="." unique_id=1420285172]
 

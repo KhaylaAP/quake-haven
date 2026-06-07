@@ -453,7 +453,7 @@ shape = SubResource("BoxShape3D_0cld6")
 debug_color = Color(2.695322e-06, 0.6423934, 0.3237595, 0.41960785)
 
 [node name="table_medium_long5" type="MeshInstance3D" parent="Props" index="1" unique_id=1754802458]
-transform = Transform3D(1.1666782, 0, 0.44873384, 0, 1.25, 0, -0.44873384, 0, 1.1666782, -2.0411384, 1.9999995, 6.9337955)
+transform = Transform3D(1.1666782, 0, 0.44873384, 0, 1.25, 0, -0.44873384, 0, 1.1666782, -2.663554, 1.9999995, 7.4339957)
 material_overlay = SubResource("ShaderMaterial_0e7nh")
 mesh = SubResource("ArrayMesh_5ubid")
 
@@ -472,7 +472,7 @@ shape = SubResource("BoxShape3D_j7bw1")
 debug_color = Color(2.695322e-06, 0.6423934, 0.3237595, 0.41960785)
 
 [node name="table_medium_long6" type="MeshInstance3D" parent="Props" index="2" unique_id=1211908988]
-transform = Transform3D(0.55911356, 0, -1.1179857, 0, 1.25, 0, 1.1179857, 0, 0.55911356, -6.18876, 1.9999995, 5.7170773)
+transform = Transform3D(0.97465086, 0, -0.78265953, 0, 1.2500001, 0, 0.78265953, 0, 0.97465086, -6.5282674, 1.9999995, 6.8110466)
 material_overlay = SubResource("ShaderMaterial_0e7nh")
 mesh = SubResource("ArrayMesh_5ubid")
 
@@ -556,7 +556,7 @@ shape = SubResource("BoxShape3D_j7bw1")
 debug_color = Color(2.695322e-06, 0.6423934, 0.3237595, 0.41960785)
 
 [node name="table_medium_long8" type="MeshInstance3D" parent="Props" index="9" unique_id=225486286]
-transform = Transform3D(1.086556, 0, -0.6179773, 0, 1.25, 0, 0.6179773, 0, 1.086556, 1.960861, 2, 6.897725)
+transform = Transform3D(1.086556, 0, -0.6179773, 0, 1.25, 0, 0.6179773, 0, 1.086556, 2.4048707, 2, 6.4919915)
 material_overlay = SubResource("ShaderMaterial_0e7nh")
 mesh = SubResource("ArrayMesh_5ubid")
 
@@ -651,7 +651,7 @@ mesh = SubResource("ArrayMesh_p30vp")
 shape = SubResource("ConcavePolygonShape3D_wgrd1")
 
 [node name="book_single" type="MeshInstance3D" parent="Props" index="19" unique_id=12296940]
-transform = Transform3D(-3.0575826e-08, -0.6994934, -0.2705715, 0.75, -3.278354e-08, 0, -1.1827055e-08, -0.2705715, 0.6994934, -1.666822, 2.083886, -1.5594049)
+transform = Transform3D(-4.0767773e-08, -0.9326579, -0.360762, 1, -4.371139e-08, 5.526965e-16, -1.5769407e-08, -0.360762, 0.9326579, -1.666822, 2.331673, -1.5594049)
 mesh = SubResource("ArrayMesh_3641b")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Props/book_single" index="0" unique_id=1335108314]
@@ -660,7 +660,7 @@ mesh = SubResource("ArrayMesh_3641b")
 shape = SubResource("ConcavePolygonShape3D_veaam")
 
 [node name="cactus_small_A" type="MeshInstance3D" parent="Props" index="20" unique_id=1985435230]
-transform = Transform3D(-2.1698682e-08, 0.50000006, -2.6150706e-09, -0.49640796, -2.1855694e-08, -0.059825838, -0.059825845, 0, 0.49640802, 0.09622097, 2.0554588, -5.295454)
+transform = Transform3D(-4.3081066e-08, 1, -5.230141e-09, -0.9928159, -4.339736e-08, -0.11965169, -0.11965169, 3.7845282e-11, 0.9928159, 0.09622097, 2.1106224, -5.295454)
 mesh = SubResource("ArrayMesh_kgg4v")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Props/cactus_small_A" index="0" unique_id=522002533]

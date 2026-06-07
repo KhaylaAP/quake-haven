@@ -415,6 +415,22 @@ data = PackedVector3Array(-0.096073985, 0.29999965, -0.23195875, 0.069974415, 0.
 [sub_resource type="BoxShape3D" id="BoxShape3D_8xqld"]
 size = Vector3(1.15, 1, 4)
 
+[sub_resource type="BoxMesh" id="BoxMesh_4hkvw"]
+size = Vector3(0.19, 5.835, 12.195)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8xqld"]
+render_priority = 0
+shader = ExtResource("2_gtuic")
+shader_parameter/shine_color = Color(1, 1, 1, 0.10980392)
+shader_parameter/shine_speed = 2.000000095
+shader_parameter/shine_width = 1.0
+shader_parameter/cycle_interval = 2.000000095
+shader_parameter/angle_fade = 1.0
+shader_parameter/highlight_strength = 0.50000002375
+shader_parameter/x_direction = 1.0
+shader_parameter/y_direction = -1.0
+shader_parameter/z_direction = 1.0
+
 [node name="GameLevel" unique_id=62749021 instance=ExtResource("1_o2wue")]
 
 [node name="Bases" parent="." index="2" unique_id=236286037]
@@ -499,7 +515,6 @@ debug_color = Color(2.695322e-06, 0.6423934, 0.3237595, 0.41960785)
 
 [node name="table_medium_long9" type="MeshInstance3D" parent="Props" index="3" unique_id=2047124493]
 transform = Transform3D(-3.278354e-08, 0, 0.75, 0, 0.75, 0, -0.75, 0, -3.278354e-08, -4.407795, 1.9902308, -3.7186277)
-material_overlay = SubResource("ShaderMaterial_gpjcc")
 mesh = SubResource("ArrayMesh_0u0gx")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Props/table_medium_long9" index="0" unique_id=1522810685]
@@ -658,7 +673,7 @@ mesh = SubResource("ArrayMesh_r0f7l")
 shape = SubResource("ConcavePolygonShape3D_7afus")
 
 [node name="book_single" type="MeshInstance3D" parent="Props" index="19" unique_id=968970954]
-transform = Transform3D(-3.0575826e-08, -0.6994934, -0.2705715, 0.75, -3.278354e-08, 0, -1.1827055e-08, -0.2705715, 0.6994934, -4.411481, 2.7963083, -3.3760607)
+transform = Transform3D(-4.0767773e-08, -0.9326579, -0.360762, 1, -4.371139e-08, 5.526965e-16, -1.5769407e-08, -0.360762, 0.9326579, -4.411481, 2.7963083, -3.3760607)
 mesh = SubResource("ArrayMesh_7lqgj")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Props/book_single" index="0" unique_id=1014415467]
@@ -667,7 +682,7 @@ mesh = SubResource("ArrayMesh_7lqgj")
 shape = SubResource("ConcavePolygonShape3D_72sjo")
 
 [node name="cactus_small_A" type="MeshInstance3D" parent="Props" index="20" unique_id=943492360]
-transform = Transform3D(0.49640796, 0, 0.059825838, 0, 0.5, 0, -0.059825838, 0, 0.49640796, -4.360345, 2.7338173, -3.7968636)
+transform = Transform3D(0.9928159, 0, 0.119651675, 0, 1, 0, -0.119651675, 0, 0.9928159, -4.360345, 2.7338173, -3.970988)
 mesh = SubResource("ArrayMesh_iwfrl")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Props/cactus_small_A" index="0" unique_id=2007949504]
@@ -686,3 +701,8 @@ camera_hide_position = Vector3(-1, 0.3, 0)
 transform = Transform3D(3.0000007, 0, -3.1263883e-12, 0, 3.0000007, 0, 3.1263883e-12, 0, 3.0000007, 0, 0, 0)
 shape = SubResource("BoxShape3D_8xqld")
 debug_color = Color(2.695322e-06, 0.6423934, 0.3237595, 0.41960785)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Props/Area3D3" index="1" unique_id=1375179309]
+transform = Transform3D(1.0000002, 0, 0, 0, 1.0000002, 0, 0, 0, 1.0000002, 1.6136503, 1.7810473, 0.23900032)
+mesh = SubResource("BoxMesh_4hkvw")
+surface_material_override/0 = SubResource("ShaderMaterial_8xqld")

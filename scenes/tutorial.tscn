@@ -715,7 +715,8 @@ libraries/ = SubResource("AnimationLibrary_6yjpi")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1069542794]
 modulate = Color(0.3854925, 0.38549247, 0.38549247, 1)
-position = Vector2(586, 327)
+position = Vector2(603.7577, 328.00003)
+scale = Vector2(1.0292307, 1.0292307)
 texture = ExtResource("1_8ho6b")
 
 [node name="Opening" type="CanvasLayer" parent="." unique_id=1762951940]
@@ -796,7 +797,7 @@ anchor_bottom = 1.0
 offset_top = -50.0
 offset_right = 511.0
 grow_vertical = 0
-theme_override_colors/font_color = Color(1, 1, 1, 0.09803922)
+theme_override_colors/font_color = Color(1, 1, 1, 0.32941177)
 theme_override_font_sizes/font_size = 36
 text = "Press (Space) to Fast-Forward"
 

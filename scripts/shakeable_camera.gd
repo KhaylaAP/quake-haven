@@ -1,6 +1,5 @@
 extends Area3D
 
-
 #How much trauma decreases each second
 @export var trauma_reduction_rate := 1.0
 
@@ -38,20 +37,24 @@ var intro_done := false
 # BlackScreen
 @onready var black_screen := $CanvasLayer/BlackScreen
 
+@onready var pivot := get_parent()
+
 func _ready() -> void:
+	add_to_group("shakeable_camera")
 	original_position = position
+	camera.position = Vector3.ZERO
 	if not earthquake_enabled:
 		intro_done = true
 		return
 	
 #	Rotate camera 360
+	pivot.rotation_degrees.y = 0.0
 	var tween = create_tween()
 	tween.tween_property(camera, "rotation_degrees:y", camera.rotation_degrees.y + 360, 5.0)
 	await tween.finished
 	
-	initial_rotation = camera.rotation_degrees
+	pivot.rotation_degrees.y = 0.0
 	intro_done = true
-	initial_rotation = camera.rotation_degrees
 	game_state.player_can_move = true
 	
 #	Wait 5 seconds before earthquake starts
@@ -62,18 +65,7 @@ func _process(delta: float) -> void:
 	time += delta
 	
 	if game_state.camera_under_table:
-		global_position = global_position.lerp(game_state.camera_hide_pos, delta * 5.0)
-	else:
-		var angle_rad := deg_to_rad(-game_state.camera_angle)
-		var offset_x := 0.017
-		var offset_z := -0.29
-		var radius := sqrt(offset_x * offset_x + offset_z * offset_z)
-		var target_pos : Vector3 = Vector3(
-			radius * sin(angle_rad),
-			original_position.y,
-			-radius * cos(angle_rad)
-		)
-		position = position.lerp(target_pos, delta * 5.0)
+		camera.global_position = camera.global_position.lerp(game_state.camera_hide_pos, delta * 5.0)
 	
 	if not intro_done:
 		return
@@ -84,6 +76,12 @@ func _process(delta: float) -> void:
 	else:
 	#	Max makes sure var trauma >= 0
 		trauma = max(trauma - delta * trauma_reduction_rate, 0.0)
+	
+	var player = get_tree().get_first_node_in_group("player")
+	if player and not game_state.camera_under_table:
+		if camera.global_position.distance_to(player.global_position) > 0.01:
+			camera.look_at(player.global_position)
+			initial_rotation = camera.rotation_degrees
 	
 #	Camera shake
 	camera.rotation_degrees.x = initial_rotation.x + max_x * get_shake_intensity() * get_noise_from_seed(0)
@@ -157,22 +155,14 @@ var rotate_tween: Tween
 # Arrow keys to rotate camera
 func _rotate_camera(degrees: float) -> void:
 	game_state.camera_angle += degrees
-	var angle_rad := deg_to_rad(game_state.camera_angle)
-	
-	var offset_x := 0.017
-	var offset_z := -0.29
-	var radius := sqrt(offset_x * offset_x + offset_z * offset_z)
-	
-	var new_x := radius * sin(-angle_rad)
-	var new_z := -radius * cos(-angle_rad)
-	
+
 	if rotate_tween:
 		rotate_tween.kill()
 	
 	rotate_tween = create_tween()
-	rotate_tween.set_parallel(true)
-	rotate_tween.tween_property(self, "rotation_degrees:y", rotation_degrees.y + degrees, 0.3)
-	rotate_tween.tween_property(self, "position:x", new_x, 0.3)
-	rotate_tween.tween_property(self, "position:z", new_z, 0.3)
-	await rotate_tween.finished
-	initial_rotation = camera.rotation_degrees
+	rotate_tween.tween_property(pivot, "rotation_degrees:y", game_state.camera_angle, 0.3)
+
+
+func reset_camera_position() -> void:
+	camera.position = Vector3.ZERO
+	pivot.rotation_degrees.y = game_state.camera_angle

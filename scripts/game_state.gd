@@ -4,7 +4,7 @@ signal earthquake_start
 signal earthquake_end
 
 # Unlock all levels to debug and test
-var unlock_all := true
+var unlock_all := false
 
 var player_can_move := false
 var earthquake_active := false

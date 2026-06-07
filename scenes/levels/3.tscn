@@ -397,6 +397,22 @@ data = PackedVector3Array(0.059999704, -0.24999973, -0.1151468, 0.049999714, -0.
 [sub_resource type="BoxShape3D" id="BoxShape3D_cddsv"]
 size = Vector3(1.15, 1, 4)
 
+[sub_resource type="BoxMesh" id="BoxMesh_sc0rx"]
+size = Vector3(0.19, 5.835, 11.27)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2n3hm"]
+render_priority = 0
+shader = ExtResource("3_sc0rx")
+shader_parameter/shine_color = Color(1, 1, 1, 0.10980392)
+shader_parameter/shine_speed = 2.000000095
+shader_parameter/shine_width = 1.0
+shader_parameter/cycle_interval = 2.000000095
+shader_parameter/angle_fade = 1.0
+shader_parameter/highlight_strength = 0.50000002375
+shader_parameter/x_direction = -1.0
+shader_parameter/y_direction = -1.0
+shader_parameter/z_direction = 1.0
+
 [node name="GameLevel" unique_id=62749021 instance=ExtResource("1_7i6uk")]
 
 [node name="Bases" parent="." index="2" unique_id=236286037]
@@ -949,6 +965,11 @@ transform = Transform3D(3, 0, -3.126388e-12, 0, 3.0000002, 0, 3.126388e-12, 0, 3
 shape = SubResource("BoxShape3D_cddsv")
 debug_color = Color(2.695322e-06, 0.6423934, 0.3237595, 0.41960785)
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Props/Area3D2" index="1" unique_id=1342406176]
+transform = Transform3D(1.0000001, 0, -1.0658141e-14, 0, 1.0000001, 0, 1.0658141e-14, 0, 1.0000001, -0.95642185, 1.7810473, 0.2390002)
+mesh = SubResource("BoxMesh_sc0rx")
+surface_material_override/0 = SubResource("ShaderMaterial_2n3hm")
+
 [node name="Area3D3" type="Area3D" parent="Props" index="7" unique_id=1979781186]
 transform = Transform3D(0.8187499, 0, 0, 0, 0.8187499, 0, 0, 0, 0.8187499, 9, 3, 0)
 script = ExtResource("6_sc0rx")
@@ -960,3 +981,8 @@ camera_hide_position = Vector3(-1, 0.3, 0)
 transform = Transform3D(3.0000007, 0, -3.1263883e-12, 0, 3.0000007, 0, 3.1263883e-12, 0, 3.0000007, 0, 0, 0)
 shape = SubResource("BoxShape3D_cddsv")
 debug_color = Color(2.695322e-06, 0.6423934, 0.3237595, 0.41960785)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Props/Area3D3" index="1" unique_id=1787953780]
+transform = Transform3D(1.0000002, 0, -3.5527145e-15, 0, 1.0000002, 0, 3.5527145e-15, 0, 1.0000002, -0.107857704, 1.7810476, -0.15662996)
+mesh = SubResource("BoxMesh_sc0rx")
+surface_material_override/0 = SubResource("ShaderMaterial_2n3hm")

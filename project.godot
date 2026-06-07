@@ -19,6 +19,12 @@ config/icon="res://icon.svg"
 
 game_state="*uid://dck5o1254jpjl"
 
+[display]
+
+window/size/mode=2
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
 [input]
 
 ui_left={

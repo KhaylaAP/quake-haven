@@ -39,8 +39,10 @@ metadata/_editor_floor_ = Vector3(0, 1, 0)
 [node name="Player" parent="." unique_id=820180184 instance=ExtResource("3_sugp2")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 3.7187822, 0)
 
-[node name="shakeable_camera" parent="Player" unique_id=1376916637 instance=ExtResource("3_tipki")]
-transform = Transform3D(-0.1, 0, -8.742278e-09, 0, 0.1, 0, 8.742278e-09, 0, -0.1, 0.017, 0.018, -0.29)
+[node name="pivot" type="Node3D" parent="Player" unique_id=354805961]
+
+[node name="shakeable_camera" parent="Player/pivot" unique_id=1376916637 instance=ExtResource("3_tipki")]
+transform = Transform3D(-0.1, 0, -8.742278e-09, 0, 0.1, 0, 8.742278e-09, 0, -0.1, 0.017, 0, -0.29)
 
 [node name="debris_spawner" parent="." unique_id=1068327904 instance=ExtResource("10_ya4ey")]
 debris_scene = ExtResource("11_eb6dy")
