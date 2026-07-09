@@ -33,6 +33,36 @@ shadow_color = Color(0.24115604, 0.24115604, 0.24115604, 0.6)
 shadow_size = 5
 shadow_offset = Vector2(3.525, 3.47)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2mkfd"]
+bg_color = Color(1, 0.24213666, 0.3016614, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.24115604, 0.24115604, 0.24115604, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(3.525, 3.47)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h8i2o"]
+bg_color = Color(0.64926064, 0.013060761, 0.111574, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.24115604, 0.24115604, 0.24115604, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(3.525, 3.47)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mt7yr"]
+bg_color = Color(0.6509804, 0.011764706, 0.10980392, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.24115604, 0.24115604, 0.24115604, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(3.525, 3.47)
+
 [node name="PauseMenu" type="CanvasLayer" unique_id=1036098452]
 process_mode = 3
 script = ExtResource("1_myx47")
@@ -90,9 +120,9 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("1_n87rw")
 theme_override_font_sizes/font_size = 48
-theme_override_styles/normal = SubResource("StyleBoxFlat_ckvwl")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_nlqja")
-theme_override_styles/hover = SubResource("StyleBoxFlat_0epgs")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2mkfd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h8i2o")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mt7yr")
 text = "EXIT"
 
 [node name="Label" type="Label" parent="." unique_id=1777422527]

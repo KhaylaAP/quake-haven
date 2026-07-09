@@ -30,6 +30,8 @@ func _on_body_exited(body: Node3D) -> void:
 		body.clear_nearby_spot(self)
 		
 func _on_earthquake_end()  -> void:
+	if get_tree().paused:
+		return
 	if player == null:
 		return
 		

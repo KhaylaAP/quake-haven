@@ -13,7 +13,7 @@ var has_impacted := false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 #	Random size debris
-	var scale_factor = randf_range(1.0, 1.5)
+	var scale_factor = randf_range(0.5, 1.5)
 	scale = Vector3(scale_factor, scale_factor, scale_factor)
 	
 #	Random rotation debris
@@ -33,7 +33,7 @@ func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 	
 #	Delete after 5 seconds
-	await get_tree().create_timer(5.0).timeout
+	await get_tree().create_timer(5.0, true).timeout
 	queue_free()
 	
 func _on_body_entered(body: Node) -> void:
@@ -58,11 +58,11 @@ func _on_body_entered(body: Node) -> void:
 		var actual_damage = damage
 		if body.is_hiding and (body.current_hide_spot.get("is_sofa") or body.current_hide_spot.get("is_wall")):
 			actual_damage = damage * 0.75
-		body.take_damage(damage)
+		body.take_damage(actual_damage)
 		
-	await get_tree().create_timer(impact_particles.lifetime + 0.1).timeout
+	await get_tree().create_timer(impact_particles.lifetime + 0.1, true).timeout
 	impact_particles.queue_free()
 	impact_chunks.queue_free()
 	
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.1, true).timeout
 	queue_free()

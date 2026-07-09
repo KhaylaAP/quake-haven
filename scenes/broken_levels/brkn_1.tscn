@@ -591,7 +591,7 @@ mesh = SubResource("ArrayMesh_ul14p")
 shape = SubResource("ConcavePolygonShape3D_crc7p")
 
 [node name="chair_B_wood2" type="MeshInstance3D" parent="Props/Chairs" index="1" unique_id=649160703]
-transform = Transform3D(1.2292749, -0.18996227, -0.123683706, 0.02422944, 0.7882478, -0.96983445, 0.22538021, 0.95135707, 0.77886087, 5.3, 2, -2.6089993)
+transform = Transform3D(1.2292749, -0.18996227, -0.123683706, 0.02422944, 0.7882478, -0.96983445, 0.22538021, 0.95135707, 0.77886087, 5.422692, 2, -2.4631913)
 mesh = SubResource("ArrayMesh_ul14p")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Props/Chairs/chair_B_wood2" index="0" unique_id=872961019]
@@ -681,6 +681,13 @@ transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0.41820872, 3.2927423, -7.635
 billboard = 2
 texture_filter = 0
 texture = ExtResource("9_sd0k1")
+
+[node name="Label3D" type="Label3D" parent="Flag/FlagSprite" index="0" unique_id=1703939724]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19612199, 0)
+billboard = 2
+texture_filter = 0
+text = "FINISH"
+font_size = 14
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Flag" index="1" unique_id=414444585]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.418, 2.5012264, -7.6854863)

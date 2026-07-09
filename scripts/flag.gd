@@ -7,7 +7,6 @@ var bob_height := 0.15
 
 @onready var sprite := $FlagSprite
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	base_y = global_position.y
 	body_entered.connect(_on_body_entered)

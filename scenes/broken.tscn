@@ -21,6 +21,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [node name="GameLevel" type="Node3D" unique_id=62749021]
+process_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2057535606]
 environment = SubResource("Environment_tefeu")
@@ -37,16 +38,19 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 1, 0)
 
 [node name="Player" parent="." unique_id=820180184 instance=ExtResource("2_u6sqi")]
+process_mode = 1
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 3.7187822, 0)
 
 [node name="pivot" type="Node3D" parent="Player" unique_id=1326926864]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 
 [node name="shakeable_camera" parent="Player/pivot" unique_id=1376916637 instance=ExtResource("3_gcsey")]
+process_mode = 1
 transform = Transform3D(-1, 0, 8.742279e-08, 0, 1, 0, -8.742279e-08, 0, -1, 0.17, 0, -2.89)
 earthquake_enabled = false
 
 [node name="debris_spawner" parent="." unique_id=1068327904 instance=ExtResource("10_yq11f")]
+process_mode = 1
 debris_scene = ExtResource("11_uoo84")
 
 [node name="PauseMenu" parent="." unique_id=1036098452 instance=ExtResource("6_q18vi")]

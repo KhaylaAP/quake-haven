@@ -11,7 +11,7 @@
 [ext_resource type="FontFile" uid="uid://d3agbbgwjnkm8" path="res://assets/fonts/RubikSprayPaint-Regular.ttf" id="7_gbqnl"]
 [ext_resource type="Texture2D" uid="uid://c3v5vytecqsrn" path="res://assets/img/BlankWall.png" id="8_0epgs"]
 [ext_resource type="Texture2D" uid="uid://tuh56fiyh3hi" path="res://assets/textures/Flag.png" id="8_nlqja"]
-[ext_resource type="Texture2D" uid="uid://c6i1ban8s3fqc" path="res://assets/textures/charles_happy.png" id="11_tbcdj"]
+[ext_resource type="Texture2D" uid="uid://c6i1ban8s3fqc" path="res://assets/img/charles_happy.png" id="11_tbcdj"]
 
 [sub_resource type="Animation" id="Animation_4kmhl"]
 length = 30.0

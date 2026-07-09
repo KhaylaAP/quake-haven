@@ -16,10 +16,6 @@ extends Area3D
 @export var earthquake_enabled := true
 
 @export var earthquake_duration := 10
-@export var debris_min := 10
-@export var debris_max := 50
-
-@export var rotate_speed := 90.0
 
 #Shake intensity
 var trauma := 0.0
@@ -58,9 +54,10 @@ func _ready() -> void:
 	game_state.player_can_move = true
 	
 #	Wait 5 seconds before earthquake starts
-	await get_tree().create_timer(5.0).timeout
+	await get_tree().create_timer(5.0, true).timeout
 	_start_earthquake(earthquake_duration)
 
+# Credits for camera shake: "Screen Shake (Godot 3D) - JUICY impacts, weapons, and more for 3D Godot games" by Pefeper 
 func _process(delta: float) -> void:
 	time += delta
 	
@@ -72,7 +69,7 @@ func _process(delta: float) -> void:
 	
 	if earthquake_active:
 #		Refill trauma so it doesnt decay
-		add_trauma(delta * 1.0)
+		_add_trauma(delta * 1.0)
 	else:
 	#	Max makes sure var trauma >= 0
 		trauma = max(trauma - delta * trauma_reduction_rate, 0.0)
@@ -88,7 +85,7 @@ func _process(delta: float) -> void:
 	camera.rotation_degrees.y = initial_rotation.y + max_y * get_shake_intensity() * get_noise_from_seed(1)
 	camera.rotation_degrees.z = initial_rotation.z + max_z * get_shake_intensity() * get_noise_from_seed(2)
 	
-func add_trauma(trauma_amount: float):
+func _add_trauma(trauma_amount: float):
 #	Clamp makes sure trauma in range of 0 - 1
 	trauma = clamp(trauma + trauma_amount, 0.0, 1.0)
 
@@ -104,7 +101,11 @@ func _start_earthquake(duration: float) -> void:
 	game_state.hiding_damage_applied = false
 	earthquake_active = true
 	game_state.earthquake_start.emit()
-	await get_tree().create_timer(duration).timeout
+	await get_tree().create_timer(duration, true).timeout
+	while get_tree().paused:
+		await get_tree().process_frame
+		if not is_instance_valid(self):
+			return
 	earthquake_active = false
 	game_state.earthquake_end.emit()
 	game_state.unlock_next_level()

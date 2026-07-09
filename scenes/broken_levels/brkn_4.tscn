@@ -689,6 +689,13 @@ billboard = 2
 texture_filter = 0
 texture = ExtResource("8_bm0sw")
 
+[node name="Label3D" type="Label3D" parent="Flag/FlagSprite" index="0" unique_id=247948802]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19612199, 0)
+billboard = 2
+texture_filter = 0
+text = "FINISH"
+font_size = 14
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Flag" index="1" unique_id=938751684]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.418, 2.5012264, -7.6854863)
 shape = SubResource("BoxShape3D_j63i5")

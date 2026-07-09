@@ -23,6 +23,8 @@ shape = SubResource("SphereShape3D_6xy6h")
 
 [node name="BlackScreen" type="ColorRect" parent="CanvasLayer" unique_id=2006047420]
 modulate = Color(1, 1, 1, 0)
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = -57.0
+offset_top = -54.0
+offset_right = 1199.0
+offset_bottom = 712.0
 color = Color(0, 0, 0, 1)

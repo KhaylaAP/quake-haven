@@ -1,11 +1,11 @@
 extends CharacterBody3D
 
 var SPEED = 8.0
-const JUMP_VELOCITY = 7.5
+const JUMP_VELOCITY = 5.5
 
 # Health
 var max_health := 100.0
-var health := 100
+var health := max_health
 var is_dead := false
 
 var is_hiding := false
@@ -50,7 +50,6 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 
 #	Input changes based on camera 
@@ -98,7 +97,6 @@ func _update_animation(input_dir: Vector2) -> void:
 		elif input_dir.y > 0:
 			sprite.play("crawl_back")
 		
-	
 # Hide & unhide interation
 func _input(event: InputEvent) -> void:
 #	Dont move during camera rotation
@@ -119,7 +117,7 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("crawl"):
 #		Toggle crawl (E button)
 		is_crawling = !is_crawling
-#		When crawl become slower
+#		When crawl becomes slower
 		if is_crawling:
 			SPEED = 3.0
 		else:
@@ -156,7 +154,7 @@ func _hide() -> void:
 
 func _unhide() -> void:
 	is_hiding = false
-#	Make player invisible when hiding
+#	Make player invisible when hiding under table
 	sprite.visible = true
 	game_state.was_hiding = false
 	game_state.was_hiding_sofa = false
@@ -179,22 +177,19 @@ func _unhide() -> void:
 		sprite.play('idle')
 	
 func set_nearby_spot(spot: Node3D, label: String) -> void:
-#	Set which propt player is near at
+#	Set which prop player is near at
 	current_hide_spot = spot
-	#print("Press F to hide: ", label)
 	
 func clear_nearby_spot(spot: Node3D) -> void:
 #	Clear if in the same spot
 	if current_hide_spot == spot:
 		current_hide_spot = null
-		#print("")
-
 
 func take_damage(amount: float) -> void:
 	if is_dead:
 		return
 	
-#	Hiding = no damage
+#	If hiding, don't take damage
 	if is_hiding:
 		return
 		
@@ -204,7 +199,6 @@ func take_damage(amount: float) -> void:
 	
 	health -= amount
 	health_bar.value = health
-	#print("Health: ", health)
 	
 	_flash_damage()
 	
@@ -216,12 +210,11 @@ func _die() -> void:
 	game_state.player_can_move = false
 	sprite.play("crawl_left")
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/gameover.tscn")
-	#print("Died")
 	
 func _show_controls_hint() -> void:
 	controls_hud.modulate.a = 1.0
 	
-	await get_tree().create_timer(5.0).timeout
+	await get_tree().create_timer(10.0).timeout
 	
 	var tween = create_tween()
 	tween.tween_property(controls_hud, "modulate:a", 0.0, 1.5)
@@ -229,7 +222,6 @@ func _show_controls_hint() -> void:
 	controls_hud.visible = false
 
 func _flash_damage() -> void:
-	sprite.modulate = Color(1.0, 0.3, 0.3)
 	var tween = create_tween()
 	tween.tween_property(sprite, "modulate", Color(1.0, 1.0, 1.0), 0.3)
 	

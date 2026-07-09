@@ -73,7 +73,7 @@ func load_broken() -> String:
 	return "res://scenes/broken.tscn"
 
 func calculate_score() -> int:
-	var score = int((last_player_health / 100.0) * 1000)
+	var score = int(last_player_health * 10)
 	return score
 	
 func save_score() -> void:

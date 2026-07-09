@@ -27,6 +27,7 @@ func start() -> void:
 	
 	var timer = Timer.new()
 	add_child(timer)
+	timer.process_mode = Node.PROCESS_MODE_PAUSABLE
 	timer.wait_time = spawn_interval
 	timer.timeout.connect(_spawn_one.bind(timer))
 	timer.start()
@@ -39,7 +40,7 @@ func _spawn_one(timer: Timer) -> void:
 	var debris = debris_scene.instantiate()
 	get_tree().current_scene.add_child(debris)
 	
-#	Temp to spawn at x & z 0
+#	Temp to spawn at one point to debug
 	#debris.global_position = Vector3(-2.5, spawn_height, -0.5)
 	
 	debris.global_position = Vector3(

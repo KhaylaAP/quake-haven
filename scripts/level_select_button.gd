@@ -24,6 +24,7 @@ func _on_pressed() -> void:
 	if game_state.is_level_unlocked(level_index):
 		game_state.current_level = level_index
 		game_state.has_player_pos = false
+		game_state.player_can_move = false
 		get_tree().call_deferred("change_scene_to_file", game_state.load_level(level_index))
 		
 func _update_scores() -> void:

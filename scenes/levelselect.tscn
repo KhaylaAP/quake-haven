@@ -46,8 +46,8 @@ script = ExtResource("1_nqy8e")
 
 [node name="Panel" type="Panel" parent="." unique_id=874391641]
 layout_mode = 0
-offset_right = 1194.6666
-offset_bottom = 672.0
+offset_right = 1175.1111
+offset_bottom = 661.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_nqy8e")
 
 [node name="Label" type="Label" parent="." unique_id=1072492665]

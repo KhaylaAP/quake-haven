@@ -333,6 +333,7 @@ initial_velocity_max = 3.0
 scale_max = 1.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqkch"]
+albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_qlg0r"]
 material = SubResource("StandardMaterial3D_dqkch")
@@ -383,9 +384,10 @@ draw_pass_1 = SubResource("BoxMesh_qlg0r")
 
 [node name="ProgressBar" type="ProgressBar" parent="HealthBar2" unique_id=1496410951]
 custom_minimum_size = Vector2(450, 35)
-offset_left = 52.0
-offset_right = 502.0
-offset_bottom = 35.0
+offset_left = 57.0
+offset_top = 5.0
+offset_right = 507.0
+offset_bottom = 40.0
 theme_override_styles/background = SubResource("StyleBoxFlat_qhqgy")
 theme_override_styles/fill = SubResource("StyleBoxFlat_dqkch")
 step = 1.0
@@ -393,6 +395,10 @@ value = 50.0
 show_percentage = false
 
 [node name="Label" type="Label" parent="HealthBar2" unique_id=2754243]
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 52.0
+offset_bottom = 34.0
 theme_override_fonts/font = ExtResource("4_dqkch")
 theme_override_font_sizes/font_size = 24
 text = "HP: "
